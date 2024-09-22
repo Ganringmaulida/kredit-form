@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interactive Card Form</title>
+    <script src="index.css"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100 h-screen flex justify-between items-center font-space-grotesk">
+    <!-- Left side (Card Design + Background Image) -->
+    <div class="relative w-1/3 h-screen flex justify-center items-center bg-cover bg-center" style="background-image: url('/images/bg-main-desktop.png');">
+      <!-- Front of the card -->
+      <div class="absolute w-80 rounded-lg top-1/4 transform -translate-x-1/2 left-80 z-20">
+        <img src="/images/bg-card-front.png" alt="Front Card" class="rounded-lg w-full" />
+        <div class="absolute top-8 left-6 text-white text-xs uppercase tracking-wide">
+          <!-- Card Number Placeholder -->
+          <p id="card-number" class="text-xl">0000 0000 0000 0000</p>
+        </div>
+        <div class="absolute bottom-16 left-6 text-white text-xs">
+          <!-- Cardholder Name Placeholder -->
+          <p id="card-name">Jane Appleseed</p>
+        </div>
+        <div class="absolute bottom-16 right-6 text-white text-xs">
+          <!-- Expiration Date Placeholder -->
+          <p id="card-expiry">MM/YY</p>
+        </div>
+      </div>
+  
+      <!-- Back of the card -->
+      <img src="/images/bg-card-back.png" alt="Back Card" class="absolute w-80 rounded-lg top-96 bottom-52 transform -translate-x-1/3 left-96 z-10 back-card" />
+    </div>
+  
+    <!-- Right side (Form Input) -->
+    <div class="w-2/5 ml-auto mr-32 p-8 shadow-lg bg-white rounded-lg relative" id="form-container">
+      <form class="space-y-6" id="card-form">
+        <!-- Cardholder Name -->
+        <div>
+          <label class="block text-sm font-bold mb-2">CARDHOLDER NAME</label>
+          <input type="text" id="input-name" placeholder="e.g. Jane Appleseed" class="w-full px-3 py-2 rounded-md border border-gray-800" />
+        </div>
+  
+        <!-- Card Number -->
+        <div>
+          <label class="block text-sm font-bold mb-2">CARD NUMBER</label>
+          <input type="text" id="input-number" placeholder="e.g. 1234 5678 9123 0000" class="w-full px-3 py-2 rounded-md border border-gray-800" />
+          <!-- Tempatkan pesan error di sini -->
+          <span id="numberError" class="text-red-600 text-sm" style="display:none;">Card number is invalid</span>
+        </div>
+  
+        <div class="flex space-x-4">
+          <div class="w-1/3">
+            <label class="block text-sm font-bold mb-2">EXP. DATE (MM)</label>
+            <input type="number" id="input-month" placeholder="MM" class="w-full px-3 py-2 rounded-md border border-gray-800" />
+            <!-- Error message for month -->
+            <span id="monthError" class="text-red-600 text-sm" style="display:none;">Invalid month</span>
+          </div>
+          <div class="w-1/3">
+            <label class="block text-sm font-bold mb-2">EXP. DATE (YY)</label>
+            <input type="number" id="input-year" placeholder="YY" class="w-full px-3 py-2 rounded-md border border-gray-800" />
+            <!-- Error message for year -->
+            <span id="yearError" class="text-red-600 text-sm" style="display:none;">Invalid year</span>
+          </div>
+          <div class="w-1/3">
+            <label class="block text-sm font-bold mb-2">CVC</label>
+            <input type="number" id="input-cvc" placeholder="e.g. 123" class="w-full px-3 py-2 rounded-md border border-gray-800" />
+            <!-- Error message for CVC -->
+            <span id="cvcError" class="text-red-600 text-sm" style="display:none;">Invalid CVC</span>
+          </div>
+        </div>
+  
+        <!-- Submit Button -->
+        <button type="submit" class="w-full bg-purple-900 text-white py-2 rounded-md font-bold hover:bg-purple-700 transition">Confirm</button>
+      </form>
+  
+      <!-- Success Message (Hidden by default) -->
+      <div class="hidden flex-col items-center justify-center text-center" id="success-message">
+        <img src="images/icon-complete.svg" alt="Success Icon" class="w-16 mb-6" />
+        <h2 class="text-2xl font-bold text-purple-900 mb-4">THANK YOU!</h2>
+        <p class="text-gray-600 mb-8">We've added your card details</p>
+        <button id="continue-button" class="w-full bg-purple-900 text-white py-2 rounded-md font-bold hover:bg-purple-700 transition">Continue</button>
+      </div>
+    </div>
+  
+    <script src="index.js"></script>
+  </body>
+  
+</html>

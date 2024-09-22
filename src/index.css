@@ -1,0 +1,14 @@
+#continue-button {
+    background-color: #4f46e5; /* Purple */
+    color: #fff;
+    padding: 12px;
+    font-weight: 600;
+    border-radius: 8px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  #continue-button:hover {
+    background-color: #4338ca; /* Darker purple on hover */
+  }
+  
